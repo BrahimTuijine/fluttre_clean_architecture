@@ -6,7 +6,7 @@ import 'package:dartz/dartz.dart';
 class GetAllPostsUseCases {
   final PostRepository repository;
 
-  GetAllPostsUseCases(this.repository);
+  GetAllPostsUseCases({required this.repository});
 
   Future<Either<Failure, List<Post>>> call() async {
     return await repository.getAllPosts();

@@ -5,7 +5,7 @@ import 'package:dartz/dartz.dart';
 class DeletePostUseCase {
   PostRepository repository;
 
-  DeletePostUseCase(this.repository);
+  DeletePostUseCase({required this.repository});
 
   Future<Either<Failure, Unit>> call(int postID) async {
     return await repository.deletePost(postID);

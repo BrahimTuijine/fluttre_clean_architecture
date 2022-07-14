@@ -1,3 +1,4 @@
+// ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
 import 'package:clean_architecture/core/constants/app_const.dart';
 import 'package:clean_architecture/core/errors/failure.dart';

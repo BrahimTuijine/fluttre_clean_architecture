@@ -6,7 +6,7 @@ import 'package:dartz/dartz.dart';
 class UpdatePostUseCase {
   PostRepository repository;
 
-  UpdatePostUseCase(this.repository);
+  UpdatePostUseCase({required this.repository});
 
   Future<Either<Failure, Unit>> call(Post post) async {
     return await repository.updatePost(post);
