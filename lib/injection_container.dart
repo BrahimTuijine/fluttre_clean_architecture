@@ -42,10 +42,10 @@ Future<void> init() async {
 
   //Datasourece
 
-  sl.resetLazySingleton<PostRemoteDataSource>(
-      instance: () => PostRemoteDataSourceImp(client: sl()));
-  sl.resetLazySingleton<PostLocalDataSource>(
-      instance: () => PostLocalDataSourceImp(sharedPreferences: sl()));
+  sl.registerLazySingleton<PostRemoteDataSource>(
+      () => PostRemoteDataSourceImp(client: sl()));
+  sl.registerLazySingleton<PostLocalDataSource>(
+      () => PostLocalDataSourceImp(sharedPreferences: sl()));
 
   //! Core
 
