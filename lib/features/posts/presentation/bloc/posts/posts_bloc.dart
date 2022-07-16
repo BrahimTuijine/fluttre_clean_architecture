@@ -16,7 +16,7 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
       if (event is GetAllPostsEvent || event is RefreshPostEvent) {
         emit(LoadingState());
 
-        final posts = await getAllPostsUseCases(); 
+        final posts = await getAllPostsUseCases();
 
         posts.fold((failure) {
           emit(ErrorPostsState(message: _mapFailureToMessage(failure)));
@@ -26,6 +26,18 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
       } else if (event is RefreshPostEvent) {}
     });
   }
+
+  // @override
+  // void onChange(Change<PostsState> change) {
+  //   super.onChange(change);
+  //   print('${change.}');
+  // }
+
+  // @override
+  // void onTransition(Transition<PostsEvent, PostsState> transition) {
+  //   super.onTransition(transition);
+  //   print("$transition");
+  // }
 
   String _mapFailureToMessage(failure) {
     switch (failure.runtimeType) {

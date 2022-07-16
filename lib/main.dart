@@ -9,6 +9,7 @@ import 'injection_container.dart' as di;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await di.init();
+
   runApp(const MyApp());
 }
 
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => di.sl<PostsBloc>()),
+        BlocProvider(
+            create: (_) => di.sl<PostsBloc>()..add(GetAllPostsEvent())),
         BlocProvider(create: (_) => di.sl<DeleteAddUpdatePostsBloc>()),
       ],
       child: MaterialApp(
