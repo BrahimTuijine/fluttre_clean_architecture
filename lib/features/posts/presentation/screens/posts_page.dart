@@ -1,7 +1,8 @@
 import 'package:clean_architecture/core/widgets/loading_widget.dart';
 import 'package:clean_architecture/features/posts/presentation/bloc/posts/posts_bloc.dart';
-import 'package:clean_architecture/features/posts/presentation/widgets/message_display_widget.dart';
-import 'package:clean_architecture/features/posts/presentation/widgets/posts_list_widget.dart';
+import 'package:clean_architecture/features/posts/presentation/screens/post_add_update_page.dart';
+import 'package:clean_architecture/features/posts/presentation/widgets/posts_page/message_display_widget.dart';
+import 'package:clean_architecture/features/posts/presentation/widgets/posts_page/posts_list_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,7 +12,16 @@ class PostsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const PostAddUpdatePage(
+                  isUpdatePost: false,
+                ),
+              ),
+            );
+          },
           child: const Icon(Icons.add),
         ),
         appBar: AppBar(

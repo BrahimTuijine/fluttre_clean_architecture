@@ -26,9 +26,11 @@ class PostRemoteDataSourceImp implements PostRemoteDataSource {
       throw ServerException();
     } else {
       final List decodedJson = json.decode(response.body);
-      final List<PostModel> postModel = decodedJson
-          .map<PostModel>((post) => PostModel.fromJson(post))
-          .toList();
+      
+      final List<PostModel> postModel = decodedJson.map<PostModel>((post) {
+        
+        return PostModel.fromJson(post);
+      }).toList();
       return postModel;
     }
   }
@@ -38,7 +40,7 @@ class PostRemoteDataSourceImp implements PostRemoteDataSource {
     final Map<String, String> body = {"title": post.title, "body": post.body};
 
     final response = await client.post(Uri.parse("${AppConst.baseUrl}/posts"),
-        headers: {'Content-Type': "application/json"}, body: body);
+        headers: {'Content-Type': "application/json"}, body: json.encode(body));
     return checkServer(response);
   }
 
@@ -54,8 +56,8 @@ class PostRemoteDataSourceImp implements PostRemoteDataSource {
     final String postId = post.id.toString();
     Map<String, String> body = {"title": post.title, "body": post.body};
 
-    final response =
-        await client.patch(Uri.parse("${AppConst.baseUrl}/posts/$postId") , body: body);
+    final response = await client
+        .patch(Uri.parse("${AppConst.baseUrl}/posts/$postId"), body: body);
 
     return checkServer(response);
   }

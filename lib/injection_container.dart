@@ -8,7 +8,6 @@ import 'package:clean_architecture/features/posts/domain/usecases/delete_post_us
 import 'package:clean_architecture/features/posts/domain/usecases/get_all_posts_usecases.dart';
 import 'package:clean_architecture/features/posts/domain/usecases/update_post.dart';
 import 'package:clean_architecture/features/posts/presentation/bloc/posts/posts_bloc.dart';
-import 'package:clean_architecture/post_observer.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';

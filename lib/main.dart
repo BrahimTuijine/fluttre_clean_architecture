@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: appTheme,
         home: const PostsPage(),
+        
       ),
     );
   }
